@@ -16,6 +16,8 @@
     <string name="btnNString">=</string>
     <string name="btnOString">x</string>
     <string name="btnPString">/</string>
+    <string name="dot">.</string>
+    <string name="sqrt">√</string>
 
 
 </resources>
