@@ -18,7 +18,7 @@
     <string name="btnPString">/</string>
     <string name="dot">.</string>
     <string name="sqrt">√</string>
-
+    <string name="mult">*</string>
 
 
 </resources>

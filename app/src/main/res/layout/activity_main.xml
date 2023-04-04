@@ -107,7 +107,7 @@
             android:onClick="onOperator"
             android:layout_height="match_parent"
             android:layout_marginEnd="4dp"
-            android:text="@string/btnOString"
+            android:text="@string/mult"
             android:textSize="20sp"
             android:textColor="@color/calcBtnText"/>
     </LinearLayout>
