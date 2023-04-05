@@ -1,18 +1,18 @@
 package com.example.calculator
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.*
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
     private var tvCalcDisplay: TextView? = null
-    var lastNumeric: Boolean = false
-    var lastDot: Boolean = false
+    private var lastNumeric: Boolean = false
+    private var lastDot: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onClear(view: View){
+    fun onSqRt(view: View) {
+        val inputText = tvCalcDisplay?.text?.toString()
+        if (inputText.isNullOrEmpty()) {
+            // If the input text is null or empty, we can't calculate the square root
+            return
+        }
+        val inputValue = inputText.toDoubleOrNull() ?: return
+        val squareRoot = sqrt(inputValue)
+        tvCalcDisplay?.text = squareRoot.toString()
+    }
+
+
+
+    fun onClear(view:View){
         tvCalcDisplay?.text = ""
     }
 
@@ -65,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 if(tvValue.contains("-")) {
                     val splitValue = tvValue.split("-")
                     var one = splitValue[0]
-                    var two = splitValue[1]
+                    val two = splitValue[1]
 
                     if(prefix.isNotEmpty()){
                         one = prefix + one
@@ -74,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 } else if(tvValue.contains("+")) {
                     val splitValue = tvValue.split("+")
                     var one = splitValue[0]
-                    var two = splitValue[1]
+                    val two = splitValue[1]
 
                     if(prefix.isNotEmpty()){
                         one = prefix + one
@@ -83,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 } else if(tvValue.contains("*")) {
                     val splitValue = tvValue.split("*")
                     var one = splitValue[0]
-                    var two = splitValue[1]
+                    val two = splitValue[1]
 
                     if(prefix.isNotEmpty()){
                         one = prefix + one
@@ -92,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 } else if(tvValue.contains("/")) {
                     val splitValue = tvValue.split("/")
                     var one = splitValue[0]
-                    var two = splitValue[1]
+                    val two = splitValue[1]
 
                     if(prefix.isNotEmpty()){
                         one = prefix + one
@@ -120,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                     || value.contains("*")
                     || value.contains("+")
                     || value.contains("-")
-                    || value.contains("√")
+
         }
     }
 }
